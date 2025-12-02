@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <string.h>
+
+enum Gender {
+    MALE,
+    FEMALE,
+    OTHER
+};
+
+struct Person {
+    enum Gender gender;
+};
+
+int main() {
+    char input[10];
+    scanf("Gender=%s", input);
+
+    struct Person p;
+
+    if (strcmp(input, "MALE") == 0) p.gender = MALE;
+    else if (strcmp(input, "FEMALE") == 0) p.gender = FEMALE;
+    else if (strcmp(input, "OTHER") == 0) p.gender = OTHER;
+    else {
+        printf("Invalid Gender");
+        return 0;
+    }
+
+    switch (p.gender) {
+        case MALE:
+            printf("Male");
+            break;
+        case FEMALE:
+            printf("Female");
+            break;
+        case OTHER:
+            printf("Other");
+            break;
+    }
+
+    return 0;
+}
